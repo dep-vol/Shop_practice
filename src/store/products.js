@@ -9,8 +9,8 @@ class Warehouse {
         this.products[i].inCart = !this.products[i].inCart
     }
    
-    @action getProduct (value) {
-       return this.products.find(el => el.id === parseInt(value))
+    @action getProduct (id) {
+       return this.products.find(el => el.id === parseInt(id))
     }
 
     @action moveToCart (product) {
@@ -43,7 +43,7 @@ function getProducts () {
             title: 'Ipnone 200',
             price: 12000,
             rest: 10,
-            current: 1,
+            
             text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.',
             inCart: false
         },
@@ -52,7 +52,7 @@ function getProducts () {
             title: 'Samsung AAZ8',
             price: 22000,
             rest: 5,
-            current: 1,
+            
             text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.',
             inCart: false
         },
@@ -61,7 +61,7 @@ function getProducts () {
             title: 'Nokia 3310',
             price: 5000,
             rest: 2,
-            current: 1,
+            
             text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.',
             inCart: false
         },
@@ -70,7 +70,7 @@ function getProducts () {
             title: 'Huawei ZZ',
             price: 15000,
             rest: 8,
-            current: 1,
+            
             text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.',
             inCart: false
         }

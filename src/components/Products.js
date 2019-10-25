@@ -14,12 +14,12 @@ import cartModel from '../store/cart'
         let products = warehouse.products.map((product) => {
             let btn;
             if(!product.inCart) {
-                btn =  <button className="btn btn-success" onClick={()=>warehouse.moveToCart(product)} style={{marginRight:'5px'}}>Add to cart</button>
+                btn =  <button className="btn btn-success" onClick={()=>cartModel.addCartItem(product.id)} style={{marginRight:'5px'}}>Add to cart</button>
             }
             else  {
                 btn =  <button className="btn btn-danger" 
                     onClick={()=>{
-                    cartModel.removeCartItem(product)
+                    cartModel.deleteItem(product.id)
                         
                     }
                     } 

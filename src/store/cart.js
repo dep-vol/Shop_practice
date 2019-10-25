@@ -4,33 +4,27 @@ class Cart {
    
     @observable products = [];
    
+
+    @action change(id, cnt) {
+        let index = this.products.findIndex((pr) => pr.id === id)
+        this.products[index].current = cnt;
+    }
+
+    @action deleteItem(id) {
+        let index = this.products.findIndex((pr) => pr.id === id)
+        this.products.splice(index, 1);
+    }
+
+    @action addCartItem(id) {
+        this.products.push({ 'id': id, 'current': 1 })
+    }
+
+    @computed get detailedProducts() {
+        return this.products.map((pr)=>)
+    }
+
     
-    @action change(i,cnt) {
-        this.products[i].current = cnt;
-    }
-
-    @action deleteItem(i) {
-        this.products.splice(i, 1);
-    }
-
-    @action addCartItem (product) {
-        if(!this.getProductCart(product.id)) {
-            this.products = [...this.products,{id:product.id,current:product.current}]
-            warehouse.changeInCartState(product)
-        }
-    }
-
-    @action removeCartItem (product) {
-        if(this.getProductCart(product.id)) {
-            let i = this.products.findIndex((el)=>el.id===product.id)
-            this.deleteItem(i)
-            warehouse.changeInCartState(product)
-        }
-    }
-
-    @action getProductCart (value) {
-        return this.products.find((el) => el.id === parseInt(value))
-     }
+   
 
      
 

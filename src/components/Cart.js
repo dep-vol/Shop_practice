@@ -11,7 +11,7 @@ import warehouse from '../store/products'
     
 
     render() {
-        let productsRows = cartModel.products.map((product, i) => {
+        let productsRows = cartModel.products.map((product) => {
 
             return (
                 <tr key={product.id}>
@@ -21,11 +21,11 @@ import warehouse from '../store/products'
                         <AppMinMax min={1}
                             max={warehouse.getProductData('rest',product.id)}
                             cnt={product.current}
-                            onChange={(cnt) => cartModel.change(i, cnt)}
+                            onChange={(cnt) => cartModel.change(product.id, cnt)}
                         />
                     </td>
                     <td>{product.current * warehouse.getProductData('price',product.id)}</td>
-                    <td><button className="btn btn-danger" onClick={(e) => cartModel.deleteItem(i)}>Delete</button></td>
+                    <td><button className="btn btn-danger" onClick={(e) => cartModel.deleteItem(product.id)}>Delete</button></td>
                 </tr>
             );
         });
