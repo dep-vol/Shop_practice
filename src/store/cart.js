@@ -20,10 +20,19 @@ class Cart {
     }
 
     @computed get detailedProducts() {
-        return this.products.map((pr)=>)
+        return this.products.map((pr)=>{
+           return {...warehouse.getProduct(pr.id), current:pr.current} 
+        })
     }
 
-    
+    @computed get total() {
+        return this.detailedProducts.reduce((t, pr) => t + pr.price * pr.current, 0);
+    }
+
+    @computed get inCart() {
+        return (id) => this.products.some((pr) => pr.id === id)
+    }
+
    
 
      

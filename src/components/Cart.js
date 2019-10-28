@@ -4,27 +4,26 @@ import cartModel from '.././store/cart';
 import { observer } from 'mobx-react';
 import {Link} from 'react-router-dom';
 import {routesMap} from '../routes/routes';
-import warehouse from '../store/products'
 
 @observer class Cart extends React.Component {
 
     
 
     render() {
-        let productsRows = cartModel.products.map((product) => {
+        let productsRows = cartModel.detailedProducts.map((product) => {
 
             return (
                 <tr key={product.id}>
-                    <td>{warehouse.getProductData('title',product.id)}</td>
-                    <td>{warehouse.getProductData('price',product.id)}</td>
+                    <td>{product.title}</td>
+                    <td>{product.price}</td>
                     <td>
                         <AppMinMax min={1}
-                            max={warehouse.getProductData('rest',product.id)}
+                            max={product.rest}
                             cnt={product.current}
                             onChange={(cnt) => cartModel.change(product.id, cnt)}
                         />
                     </td>
-                    <td>{product.current * warehouse.getProductData('price',product.id)}</td>
+                    <td>{product.current * product.price}</td>
                     <td><button className="btn btn-danger" onClick={(e) => cartModel.deleteItem(product.id)}>Delete</button></td>
                 </tr>
             );
@@ -44,7 +43,7 @@ import warehouse from '../store/products'
                         {productsRows}
                         <tr>
                             <td colSpan='3' align='right' className='font-weight-bold'>Final amount:</td>
-                            <td className='font-weight-bold'>{warehouse.total}</td>
+                            <td className='font-weight-bold'>{cartModel.total}</td>
                         </tr>
                     </tbody>
 

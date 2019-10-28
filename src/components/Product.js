@@ -8,19 +8,13 @@ import cartModel from '../store/cart'
 
     product = warehouse.getProduct(this.props.match.params.id);
 
-    checkInCart () {
-        if(!this.product.inCart) {
-            return <button className="btn btn-success" onClick={()=>warehouse.moveToCart(this.product)} style={{marginRight:'5px'}}>Add to cart</button>
+    get btn () {
+        if(!cartModel.inCart(this.product.id)) {
+            return <button className="btn btn-success" onClick={() => cartModel.addCartItem(this.product.id)} style={{marginRight:'5px'}}>Add to cart</button>
         }
         else  {
             return <button className="btn btn-danger" 
-                onClick={()=>{
-                cartModel.removeCartItem(this.product)
-                    
-                }
-                } 
-                style={{marginRight:'5px'}
-            }>Remove from cart</button>
+                onClick={() => {cartModel.deleteItem(this.product.id)}} style={{marginRight:'5px'}}>Remove from cart</button>
         }
     }
 
@@ -43,7 +37,7 @@ import cartModel from '../store/cart'
                     <div className="card-body">
                         <h5 className="card-title">{this.product.title}</h5>
                         <p className="card-text">{this.product.text}</p>
-                        {this.checkInCart()}
+                        {this.btn}
                         <Link className="card-link" to='/'>Back</Link>
                     </div>
                 </div>
