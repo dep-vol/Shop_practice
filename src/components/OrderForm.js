@@ -1,13 +1,14 @@
 import React from 'react';
 import AppInput from './AppInput';
 import Modal from './Modal';
-import { observer } from 'mobx-react';
-import orderModel from '../store/order'
+import withStore from '../HOCs/withStore'
 
 
-@observer class OrderForm extends React.Component {
+class OrderForm extends React.Component {
     
     render () {
+
+        let orderModel = this.props.stores.order
         return (
         
             <form className='container'>
@@ -58,4 +59,4 @@ import orderModel from '../store/order'
    
             }
             
-export default OrderForm
+export default withStore(OrderForm)

@@ -1,16 +1,16 @@
 import React from 'react';
-import {observer} from 'mobx-react';
-import warehouse from '../store/products';
 import {Link} from 'react-router-dom';
-import cartModel from '../store/cart'
+import withStore from '../HOCs/withStore';
 
-@observer class Products extends React.Component {
+class Products extends React.Component {
     style = {
        width: '18rem'
     }
     
     render () {
         
+        let cartModel = this.props.stores.cart;
+        let warehouse = this.props.stores.products;
         let products = warehouse.products.map((product) => {
             let btn;
             if (!cartModel.inCart(product.id)) {
@@ -46,4 +46,4 @@ import cartModel from '../store/cart'
 
 }
 
-export default Products
+export default withStore(Products)

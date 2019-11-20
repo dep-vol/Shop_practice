@@ -69,4 +69,4 @@ class Order {
 
 }
 
-export default new Order();
+export default Order;

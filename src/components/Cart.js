@@ -1,15 +1,16 @@
 import React from 'react';
 import AppMinMax from './Counter';
-import cartModel from '.././store/cart';
-import { observer } from 'mobx-react';
 import {Link} from 'react-router-dom';
 import {routesMap} from '../routes/routes';
+import withStore from '../HOCs/withStore'
 
-@observer class Cart extends React.Component {
+class Cart extends React.Component {
 
     
 
     render() {
+
+        let cartModel = this.props.stores.cart;
         let productsRows = cartModel.detailedProducts.map((product) => {
 
             return (
@@ -56,4 +57,4 @@ import {routesMap} from '../routes/routes';
 
 }
 
-export default Cart;
+export default withStore(Cart);

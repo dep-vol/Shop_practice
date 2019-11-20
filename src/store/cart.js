@@ -1,8 +1,28 @@
 import {observable,action,computed} from 'mobx';
-import warehouse from './products';
+
 class Cart {
+
+    constructor (rootStore) {
+        this.rootStore = rootStore;
+        this.api = this.rootStore.api.cart;
+        this.storage = this.rootStore.storage;
+        this.token = this.storage.getItem('cartToken');
+        this.load()
+    }
    
+
     @observable products = [];
+
+    @action load() {
+        this.api.cartLoad(this.token).then((data) => {
+            this.products = data.cart;
+            
+            if(data.needUpdate){
+                this.token = data.token;
+                this.storage.setItem('cartToken', this.token);
+            }
+        });
+    }
    
 
     @action change(id, cnt) {
@@ -21,7 +41,7 @@ class Cart {
 
     @computed get detailedProducts() {
         return this.products.map((pr)=>{
-           return {...warehouse.getProduct(pr.id), current:pr.current} 
+           return {...this.rootStore.products.getProduct(pr.id), current:pr.current} 
         })
     }
 
@@ -33,6 +53,11 @@ class Cart {
         return (id) => this.products.some((pr) => pr.id === id)
     }
 
+    
+    @computed get totalCount() {
+        return this.products.reduce((t, pr) => t + pr.current, 0);
+    }
+
    
 
      
@@ -41,7 +66,7 @@ class Cart {
 
 
 
-export default new Cart();
+export default Cart;
 
 
 
