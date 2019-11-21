@@ -32,11 +32,25 @@ class Cart {
 
     @action deleteItem(id) {
         let index = this.products.findIndex((pr) => pr.id === id)
-        this.products.splice(index, 1);
+        this.api.delItem(this.token,id).then((res)=>{
+            if (res) {
+                this.products.splice(index, 1);
+            }
+        })
+        
     }
 
     @action addCartItem(id) {
-        this.products.push({ 'id': id, 'current': 1 })
+        this.api.add(this.token,id).then((res)=>{
+            if (res) {
+                this.products.push({ 'id': id, 'current': 1 })
+            }
+            else {
+                console.log('wtf')
+            }
+            
+        })
+        
     }
 
     @computed get detailedProducts() {

@@ -12,6 +12,7 @@ class RootStore {
         }
 
         this.storage = localStorage;
+        
 
         this.cart = new cartModel(this);
         this.order = new order(this);

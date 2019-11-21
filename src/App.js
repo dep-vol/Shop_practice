@@ -22,7 +22,7 @@ import CartCard from './components/CartCard/CartCard';
             <Provider stores = {stores}>
                 
                 <Router>
-                    <div className='container'>
+                    <div className='container' style={{marginBottom :'50px'}}>
                         <h1 className='text-center'>MEGA TECTO SHOP</h1>
                         <CartCard/>
                         <hr></hr>

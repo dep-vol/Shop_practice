@@ -9,4 +9,12 @@ function cartLoad(token) {
     return makeRequest(url)
 }
 
-export { cartLoad }
+function add(token,id) {
+    return makeRequest(`cart/add.php?token=${token}&id=${id}`)
+}
+
+function delItem(token,id) {
+    return makeRequest(`cart/remove.php?token=${token}&id=${id}`)
+}
+
+export { cartLoad, add, delItem }
