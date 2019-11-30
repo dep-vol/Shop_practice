@@ -1,6 +1,9 @@
 import { observable, action, computed } from 'mobx';
 
 class Order {
+    constructor (rootStore) {
+        this.rootStore = rootStore;
+    }
 
     @observable consumer = {
         name: '',
@@ -8,15 +11,29 @@ class Order {
         phone: ''
     };
 
+    @observable valid = {
+        name:'',
+        email:'',
+        phone:''
+    };
+
+    @observable lastOrderCache = {consumer:{}, total:null}
+
     @action setConsumer = (el) => {
         this.consumer = {...this.consumer,...el};
     };
 
+    @action setCache() {
+       
+        this.lastOrderCache = {...this.lastOrderCache, consumer:this.consumer, total:this.rootStore.cart.total}
+        
+    }
+
     @action error = (e)=> {
-        e.target.className = 'form-control is-invalid'
+        this.valid[e.target.id] = 'invalid'
     }
     @action succes = (e) => {
-        e.target.className = 'form-control is-valid'
+        this.valid[e.target.id] = 'valid'
     }
 
     @action check = (e, type) => {
@@ -44,7 +61,7 @@ class Order {
                 break;
             }
             case 'phone': {
-                let pattern = /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/ ;
+                let pattern = /^\+?[78][-(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/ ;
                 if(pattern.test(e.target.value)) {
                     this.setConsumer({phone:e.target.value});
                     this.succes(e);
@@ -57,14 +74,9 @@ class Order {
             default: console.log('error')
        
     }
-}
+};
     @computed get status() {
-        if((this.consumer.name!=='')&&(this.consumer.email!=='')&&(this.consumer.phone!=='')) {
-            return false
-        }
-        else {
-            return true
-        }
+        return !((this.consumer.name !== '') && (this.consumer.email !== '') && (this.consumer.phone !== ''));
     }
 
 }

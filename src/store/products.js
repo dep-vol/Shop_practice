@@ -15,11 +15,13 @@ class Warehouse {
         return new Promise((resolve,reject) => {
             
             this.api.loadAll().then((data) => {
-                this.products = data
+
                 setTimeout(()=>{
+                    this.products = data
                     resolve(true);
                     
-                },700) 
+                },200)
+                
             })
         })
        

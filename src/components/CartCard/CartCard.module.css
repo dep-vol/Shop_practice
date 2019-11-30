@@ -1,11 +1,20 @@
 .container {
     display: flex;
-    flex-direction: row-reverse;
-    
+    justify-content: space-between;
+    padding-right: 30px;
+
+}
+
+.logo {
+  display: flex;
+  align-self: center;
+  padding-left: 5px;
+  font-weight: bold;
+  font-size: 32px;
 }
 
 .cart {
-   width: 10rem;
+   /*width: 10rem;*/
     display: flex;
     align-items: center;
     
@@ -13,4 +22,13 @@
 
 .cart>img {
     width: 5rem
+}
+
+.body {
+  margin-left: 15px;
+}
+
+.h_title {
+  text-align: center;
+  font-weight: bold;
 }

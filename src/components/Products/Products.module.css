@@ -1,0 +1,57 @@
+.main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+}
+
+.card {
+  display: flex;
+  border-radius: 15px;
+  flex-direction: column;
+  padding: 25px;
+  margin: 25px;
+  border: 3px dotted #bbcbfb;
+  align-items: center;
+
+}
+.card>h5 {
+  margin: 0;
+  border-bottom: 2px solid hotpink;
+}
+.card>p{
+  font-size: 16px;
+}
+.card>img {
+  height: 150px;
+  width: 75px;
+  margin: 15px;
+}
+
+.btnSuccess {
+  background-color:#4c68ff;
+}
+
+.card>button{
+  display: block;
+  border: none;
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  color:white;
+  margin: 5px;
+}
+
+.card>button:hover{
+  transform: scale(1.03,1.05);
+  border: darkgrey 2px solid;
+}
+
+.btnDanger {
+  background-color: #ff69b4;
+}
+
+.cardLink{
+  text-decoration:none;
+  color:black;
+  font-weight: bold;
+  border-bottom: 2px solid hotpink;
+}

@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+}
+
+.btnCounter {
+  display: block;
+  border: none;
+  padding: 1px 15px;
+  border-radius: 25px;
+  color:white;
+  margin: 5px;
+  background-color:#4c68ff;
+}

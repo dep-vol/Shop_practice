@@ -27,6 +27,7 @@ class AppInput extends React.Component {
     }
 
     makeChange = (e) => {
+        e.preventDefault();
         if (this.props.value !== e.target.value) {
             this.props.onChange(e);
         }
@@ -36,7 +37,9 @@ class AppInput extends React.Component {
         return (
                 <input ref={this.input} {...this.props.nativeProps} 
                        defaultValue={this.props.value}
-                       onBlur={this.makeChange}></input>
+                       onBlur={this.makeChange}
+                       onKeyPress={(e)=>e.key==='Enter'? this.makeChange(e):null}
+                ></input>
 
         )
     }

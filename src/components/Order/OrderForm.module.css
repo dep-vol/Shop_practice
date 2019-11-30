@@ -1,0 +1,49 @@
+.container {
+  padding: 15px;
+}
+.container>h1 {
+  text-align: center;
+  border-bottom: 2px solid hotpink;
+}
+
+.form {
+  margin: 20px auto;
+}
+
+.form>label {
+  display: flex;
+  font-size: 15px;
+}
+
+.input{
+  height: 30px;
+  width: 250px;
+  padding: 5px;
+}
+
+.invalid{
+
+
+}
+.valid{
+  color: #00a50f;
+  font-size: 14px;
+
+}
+.invalidMsg{
+  color: #e62800;
+  font-size: 14px;
+}
+.input.invalid+.invalidMsg::before{
+  content: 'Please insert correct information'
+}
+
+.btnBack {
+  border: none;
+  width: 100px;
+  padding: 5px;
+  border-radius: 5px;
+  color:white;
+  margin: 5px;
+  background-color: #ff69b4;
+}

@@ -11,11 +11,11 @@ class Product extends React.Component {
         let product = warehouse.getProduct(this.props.match.params.id);
         let btn = ()=> {
             if (!cartModel.inCart(product.id)) {
-                return <button className="btn btn-success" onClick={() => cartModel.addCartItem(product.id)} style={{ marginRight: '5px' }}>Add to cart</button>
+                return <button className="btn btn-success" onClick={() => cartModel.addCartItem(product.id)} style={{ marginRight: '5px' }} disabled={this.props.stores.activeProducts.actionState[product.id]}>Add to cart</button>
             }
             else {
                 return <button className="btn btn-danger"
-                    onClick={() => { cartModel.deleteItem(product.id) }} style={{ marginRight: '5px' }}>Remove from cart</button>
+                    onClick={() => { cartModel.deleteItem(product.id) }} style={{ marginRight: '5px' }} disabled={this.props.stores.activeProducts.actionState[product.id]}>Remove from cart</button>
             }
         }
 

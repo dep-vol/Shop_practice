@@ -1,51 +1,45 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import { observer, Provider } from 'mobx-react';
-import routes from './routes/routes';
-import SideMenu from './components/SideMenu';
-import stores from './store/rootStore'
+import styles from './App.module.css'
+import withStore from "./HOCs/withStore";
+import SideMenu from './components/SideMenu/SideMenu';
 import CartCard from './components/CartCard/CartCard';
+import { Switch } from "react-router-dom";
+import * as PropTypes from 'prop-types';
+import {element} from "prop-types";
 
-@observer class App extends React.Component{
-    
-    
-    render() {
-  
 
-        let Components = routes.map((route) => {
-           return <Route path={route.url} component={route.component} exact={route.exact} key={route.url} />
-        })
+const App = (props) => {
+    let {Components} = props;
 
-        return (
-           
-            <Provider stores = {stores}>
-                
-                <Router>
-                    <div className='container' style={{marginBottom :'50px'}}>
-                        <h1 className='text-center'>MEGA TECTO SHOP</h1>
-                        <CartCard/>
-                        <hr></hr>
-                        <div className='row'>
-                            <SideMenu />
-                            <div className='col-9'>
-                                <Switch>
-                                    {Components}
-                                </Switch>
-                            </div>
-
-                        </div>
+    return (
+        <>
+            <div className={styles.container}>
+                <div className={styles.header}>
+                    <CartCard/>
+                    {/*<hr/>*/}
+                </div>
+                <div className={styles.mainContainer}>
+                    <SideMenu/>
+                    <div className={styles.main}>
+                        <Switch>
+                            {Components}
+                        </Switch>
                     </div>
-                </Router>
-            </Provider>
-            
+                </div>
+            </div>
+        </>
+    )
+};
+App.propTypes = {
+    stores: PropTypes.object,
+    Components: PropTypes.arrayOf(element)
+};
+
+App.defaultProps = {
+    stores:{},
+    Components:[]
+};
 
 
-        )
-
-    }
-        
-    }
-    
-    export default App;
+export default withStore(App);
 

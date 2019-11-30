@@ -1,8 +1,8 @@
 import { observable, action, computed } from 'mobx';
 import React from 'react';
-import Cart from '../components/Cart';
-import OrderForm from '../components/OrderForm';
-import ResultScreen from '../components/ResultScreen';
+import Cart from '../components/Cart/Cart';
+import OrderForm from '../components/Order/OrderForm';
+import ResultScreen from '../components/ResultScreen/ResultScreen';
 
 class Router {
 

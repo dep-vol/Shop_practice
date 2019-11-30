@@ -1,0 +1,38 @@
+.container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+table {
+  display: flex;
+  justify-content: center;
+
+}
+table>tbody>tr>td {
+  padding: 15px;
+  border: 3px dotted #bbcbfb;
+}
+
+.tBody {
+  font-weight: bold;
+}
+
+.btnDanger{
+  display: block;
+  border: none;
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  color:white;
+  background-color: #ff69b4;
+}
+.go {
+  text-decoration: none;
+  color: black;
+  border-bottom: 2px solid deeppink;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  margin: 25px;
+}

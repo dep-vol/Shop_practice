@@ -17,4 +17,12 @@ function delItem(token,id) {
     return makeRequest(`cart/remove.php?token=${token}&id=${id}`)
 }
 
-export { cartLoad, add, delItem }
+function changeCount(token,id,cnt) {
+    return makeRequest(`cart/change.php?token=${token}&id=${id}&cnt=${cnt}`)
+}
+
+function clean(token) {
+    return makeRequest(`cart/clean.php?token=${token}`)
+}
+
+export { cartLoad, add, delItem, changeCount, clean }

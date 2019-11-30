@@ -4,22 +4,31 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import stores from './store/rootStore'
-import LoadingScreen from './components/LoadingScreen';
+import routes from './routes/routes';
+import {Route} from "react-router-dom";
+import {Provider} from "mobx-react";
+import {BrowserRouter as Router} from "react-router-dom";
+import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
+
+let Components = routes.map((route) => {
+    return <Route path={route.url} component={route.component} exact={route.exact} key={route.url}/>
+});
 
 
-let promise = new Promise((res,reject) => {
-    ReactDOM.render(<LoadingScreen />, document.getElementById('root'));
-    res(true)
-})
-    
-    
+ReactDOM.render(<LoadingScreen />,document.getElementById('root'));
+
+stores.products.load().then(() => {
+  ReactDOM.render(
+    <Provider stores={stores}>
+      <Router>
+        <App Components={Components}/>
+      </Router>
+    </Provider>, document.getElementById('root'));
+
+});
 
 
-    promise.then(()=>{
-        stores.products.load().then(() => {
-        ReactDOM.render(<App />, document.getElementById('root'));
-    });
-})
+
 
 
 // If you want your app to work offline and load faster, you can change

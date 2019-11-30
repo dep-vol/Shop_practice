@@ -1,14 +1,14 @@
-import Cart from '../components/Cart.js'
-import OrderForm from '../components/OrderForm.js'
-import ResultScreen from '../components/ResultScreen.js'
+import Cart from '../components/Cart/Container/Cart'
+import OrderForm from '../components/Order/OrderForm.js'
+import ResultScreen from '../components/ResultScreen/ResultScreen.js'
 import Product from '../components/Product.js';
-import Shop from '../components/Shop.js';
+import Products from "../components/Products/Container/Products";
 
 let routes = [
     {
         name: 'index',
         url: '/',
-        component: Shop,
+        component: Products,
         exact: true
     },
     {

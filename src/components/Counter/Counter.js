@@ -1,6 +1,7 @@
 import React from 'react';
 import AppInput from './AppInput';
 import PropTypes from 'prop-types';
+import styles from './Counter.module.css'
 
 class Counter extends React.Component{
 
@@ -41,15 +42,16 @@ class Counter extends React.Component{
 
     render() {
         return (
-
-            <div className='form-inline' >
-                <button className='btn btn-dark' onClick={this.minus}>-</button>
+            
+            <div className={styles.form} >
+               
+                <button className={styles.btnCounter} onClick={this.minus} disabled={this.props.disabled}>-</button>
                 <AppInput 
                 nativeProps={{type:'text', className:'form-control'}}
                 value={this.props.cnt}
                 onChange={this.onChange}
                 />
-                <button className='btn btn-dark' onClick={this.plus}>+</button>
+                <button className={styles.btnCounter} onClick={this.plus} disabled={this.props.disabled}>+</button>
             </div>
 
             

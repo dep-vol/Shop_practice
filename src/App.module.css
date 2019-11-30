@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px&display=swap&subset=latin-ext');
+
+.container {
+    font-family: 'Slabo 27px', serif;
+    font-size: 18px;
+    display: grid;
+    grid-template-rows: 68px 1fr;
+    height: 100%;
+}
+
+.header {
+
+}
+.header>hr {
+    margin: 0;
+}
+
+.mainContainer{
+    display: grid;
+    grid-template-rows: 28px 1fr;
+
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.main {
+    background-color: #E4F2E8;
+    padding-left: 16px;
+}
