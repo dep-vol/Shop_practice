@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {observer} from "mobx-react";
 import styles from './Products.module.css';
 import * as PropTypes from 'prop-types';
+import img from '../../img/iphone_PNG5733.png';
 
 const Products = (props) => {
   let products = props.warehouse.products.map((product) => {
@@ -25,7 +26,7 @@ const Products = (props) => {
     return (
       <div className={styles.card} key={product.id}>
           <h5>{product.title}</h5>
-        <img src='img/iphone_PNG5733.png' />
+        <img src={img} />
         <p>
           {product.text}
           <Link className={styles.cardLink} to={`/product/${product.id}`}>
