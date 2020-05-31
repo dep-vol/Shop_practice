@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Shop_practice_MobX/static/css/main.0352b9fd.chunk.css",
+    "main.js": "/Shop_practice_MobX/static/js/main.af121a23.chunk.js",
+    "main.js.map": "/Shop_practice_MobX/static/js/main.af121a23.chunk.js.map",
+    "runtime-main.js": "/Shop_practice_MobX/static/js/runtime-main.02dfbe9f.js",
+    "runtime-main.js.map": "/Shop_practice_MobX/static/js/runtime-main.02dfbe9f.js.map",
+    "static/js/2.6d0cff1b.chunk.js": "/Shop_practice_MobX/static/js/2.6d0cff1b.chunk.js",
+    "static/js/2.6d0cff1b.chunk.js.map": "/Shop_practice_MobX/static/js/2.6d0cff1b.chunk.js.map",
+    "index.html": "/Shop_practice_MobX/index.html",
+    "precache-manifest.58bd8a7405f1313e4638cc81259efffc.js": "/Shop_practice_MobX/precache-manifest.58bd8a7405f1313e4638cc81259efffc.js",
+    "service-worker.js": "/Shop_practice_MobX/service-worker.js",
+    "static/css/main.0352b9fd.chunk.css.map": "/Shop_practice_MobX/static/css/main.0352b9fd.chunk.css.map",
+    "static/js/2.6d0cff1b.chunk.js.LICENSE.txt": "/Shop_practice_MobX/static/js/2.6d0cff1b.chunk.js.LICENSE.txt",
+    "static/media/cart.jpg": "/Shop_practice_MobX/static/media/cart.6b1a547c.jpg",
+    "static/media/iphone_PNG5733.png": "/Shop_practice_MobX/static/media/iphone_PNG5733.cea54723.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.02dfbe9f.js",
+    "static/js/2.6d0cff1b.chunk.js",
+    "static/css/main.0352b9fd.chunk.css",
+    "static/js/main.af121a23.chunk.js"
+  ]
+}
